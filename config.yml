@@ -1,0 +1,92 @@
+directories:
+  TVREMUX:
+    group_order: 10
+    group: media
+    filters:
+      - and:
+        - regex: \b(?:1080p)\b/i
+        - regex: \b(?:remux)\b/i
+        - not_regex: \b(?:4k|2160p|DV|DolbyVision|Dovi)\b/i
+        - has_episodes: true
+
+  TV:
+    group_order: 20
+    group: media
+    filters:
+      - and:
+        - not_regex: \b(?:4k|2160p|REMUX|DV|DolbyVision|Dovi)\b/i
+        - has_episodes: true
+
+  TV4KREMUX:
+    group_order: 30
+    group: media
+    filters:
+      - and:
+        - regex: \b(?:remux)\b/i
+        - regex: \b(?:2160p)\b/i
+        - not_regex: \b(?:1080p|720p|480p|360p)\b/i
+        - has_episodes: true
+
+  TV4KDV:
+    group_order: 40
+    group: media
+    filters:
+      - and:
+        - regex: \b(?:DolbyVision|Dovi|DV)\b/i
+        - not_regex: \b(?:1080p|720p|480p|360p|REMUX|mp4)\b/i
+        - has_episodes: true
+
+  TV4K:
+    group_order: 50
+    group: media
+    filters:
+      - and:
+        - regex: \b(?:2160p)\b/i
+        - not_regex: \b(?:REMUX|DV|DolbyVision|Dovi|1080p|720p|480p|360p)\b/i
+        - has_episodes: true
+
+  MoviesREMUX:
+    group_order: 60
+    group: media
+    only_show_the_biggest_file: true
+    filters:
+      - and:
+        - regex: \b(?:1080p)\b/i
+        - regex: \b(?:bdremux|remux)\b/i
+        - not_regex: \b(?:4k|2160p|DV|DolbyVision|Dovi)\b/i
+
+  Movies4KREMUX:
+    group_order: 70
+    group: media
+    only_show_the_biggest_file: true
+    filters:
+      - and:
+        - regex: \b(?:remux|bdremux)\b/i
+        - regex: \b(?:2160p)\b/i
+        - not_regex: \b(?:1080p|720p|480p|360p)\b/i
+
+  Movies4KDV:
+    group_order: 80
+    group: media
+    only_show_the_biggest_file: true
+    filters:
+      - and:
+        - regex: \b(?:DolbyVision|Dovi|DV)\b/i
+        - not_regex: \b(?:1080p|720p|480p|360p|bdremux|remux|mp4)\b/i
+
+  Movies4K:
+    group_order: 90
+    only_show_the_biggest_file: true
+    group: media
+    filters:
+      - and:
+        - regex: \b(?:2160p)\b/i
+        - not_regex: \b(?:REMUX|DV|DolbyVision|Dovi|1080p|720p|480p|360p)\b/i
+
+  Movies:
+    group_order: 100
+    only_show_the_biggest_file: true
+    group: media
+    filters:
+      - and:
+        - not_regex: \b(?:4k|2160p|REMUX|DV|DolbyVision|Dovi)\b/i
